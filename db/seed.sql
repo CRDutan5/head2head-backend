@@ -6,7 +6,7 @@
 -- ('demo', '$2b$10$.z68x3792U9LyBwmghfsKexstMO7i0SeNCoDmeJa7bEFPQBnZU3bK', 'demo@example.com', NOW(), NOW());
 INSERT INTO users (username, password_hash, email, user_type, img, preferred_position, firstName, lastName, date_of_birth, nationality)
 VALUES
-    ('user1', 'password1', 'user1@example.com', 'regular', 'img1.jpg', 'Forward', 'John', 'Doe', '1990-01-01', 'USA'),
+    ('user1', '$2b$10$4vBdARqWiAF9wsjAL/LcgOFl/hFgOdQjjeO1sYXtFQ1HLCe0jyGZu', 'user1@example.com', 'regular', 'img1.jpg', 'Forward', 'John', 'Doe', '1990-01-01', 'USA'),
     ('user2', 'password2', 'user2@example.com', 'regular', 'img2.jpg', 'Midfielder', 'Michael', 'Smith', '1995-02-15', 'Canada'),
     ('user3', 'password3', 'user3@example.com', 'regular', 'img3.jpg', 'Defender', 'David', 'Johnson', '1988-06-20', 'UK'),
     ('user4', 'password4', 'user4@example.com', 'regular', 'img4.jpg', 'Goalie', 'James', 'Brown', '1992-11-30', 'Australia'),
