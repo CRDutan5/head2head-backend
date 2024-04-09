@@ -8,7 +8,6 @@ const auth = express.Router();
 // Login route
 auth.post("/login", async (req, res) => {
   const { username, password } = req.body;
-
   try {
     const user = await findUserByUsername(username);
 
@@ -20,7 +19,7 @@ auth.post("/login", async (req, res) => {
       return res.status(401).json({ message: "Invalid credentials" });
 
     const token = generateToken(user);
-
+    console.log(token);
     res.status(200).json({
       message: "Logged in successfully",
       user,

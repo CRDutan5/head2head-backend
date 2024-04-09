@@ -7,7 +7,8 @@
     "start": "node server.js",
     "dev": "nodemon server.js",
     "db:init": "psql -U postgres -f db/schema.sql",
-    "db:seed": "psql -U postgres -f db/seed.sql"
+    "db:seed": "psql -U postgres -f db/seed.sql",
+    "db:generateHashForSeeding": "node db/generateHashForSeeding.js"
   },
   "keywords": [],
   "author": "",

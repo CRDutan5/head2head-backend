@@ -5,6 +5,8 @@ const cron = require("node-cron");
 const cookieParser = require("cookie-parser");
 
 const authController = require("./controllers/authController");
+const teamController = require("./controllers/teamController");
+const matchController = require("./controllers/matchController");
 
 // CONFIGURATION
 const app = express();
@@ -28,6 +30,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use("/api/auth", authController);
+app.use("/api/team", teamController);
+app.use("/api/match", matchController);
 
 // ROUTES
 app.get("/", (_req, res) => {
