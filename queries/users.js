@@ -17,18 +17,13 @@ const findUserByUsername = async (username) => {
   }
 };
 
-const createUser = async ({ username, passwordHash, email, firstName }) => {
+const createUser = async ({ username, passwordHash, email }) => {
   const query = `
-      INSERT INTO users (username, password_hash, email, firstName)
-      VALUES ($1, $2, $3, $4)
-      RETURNING id, username, email, firstName; 
+      INSERT INTO users (username, password_hash, email, )
+      VALUES ($1, $2, $3)
+      RETURNING id, username, email; 
     `;
-  const newUser = await db.one(query, [
-    username,
-    passwordHash,
-    email,
-    firstName,
-  ]);
+  const newUser = await db.one(query, [username, passwordHash, email]);
   return newUser;
 };
 
