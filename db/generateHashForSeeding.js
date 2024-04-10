@@ -9,6 +9,5 @@ bcrypt.hash(password, saltRounds, function (err, hash) {
     console.error("Error generating hash:", err);
     return;
   }
-  console.log("Generated hash:", hash);
   // Now, you can manually copy this hash to your seed.sql file
 });

@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken");
 
 const authenticateToken = async (req, res, next) => {
   const authHeader = await req.headers["authorization"];
-  console.log("hellooo", authHeader);
   if (authHeader.includes("null"))
     return res.status(401).json({ message: "Unauthorized User" });
   else {

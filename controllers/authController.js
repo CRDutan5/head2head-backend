@@ -6,6 +6,32 @@ const { authenticateToken } = require("../middlewares/authenticateToken");
 const auth = express.Router();
 
 // Login route
+// auth.post("/login", async (req, res) => {
+//   const { username, password } = req.body;
+//   try {
+//     const user = await findUserByUsername(username);
+
+//     if (!user) return res.status(401).json({ message: "Invalid credentials" });
+
+//     const validPassword = await bcrypt.compare(password, user.password_hash);
+
+//     if (!validPassword)
+//       return res.status(401).json({ message: "Invalid credentials" });
+
+//     const token = generateToken(user);
+//     // console.log(token);
+//     res.status(200).json({
+//       message: "Logged in successfully",
+//       user,
+//       token,
+//     });
+//   } catch (error) {
+//     console.error(error);
+//     res
+//       .status(500)
+//       .json({ message: "An error occurred during the login process." });
+//   }
+// });
 auth.post("/login", async (req, res) => {
   const { username, password } = req.body;
   try {
@@ -18,11 +44,14 @@ auth.post("/login", async (req, res) => {
     if (!validPassword)
       return res.status(401).json({ message: "Invalid credentials" });
 
-    const token = generateToken(user);
-    console.log(token);
+    // Remove password_hash from the user object
+    const { password_hash, ...userWithoutPassword } = user;
+
+    const token = generateToken(userWithoutPassword);
+
     res.status(200).json({
       message: "Logged in successfully",
-      user,
+      user: userWithoutPassword, // Sending the user object without password_hash
       token,
     });
   } catch (error) {
