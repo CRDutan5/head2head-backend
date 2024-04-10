@@ -2,9 +2,10 @@ const jwt = require("jsonwebtoken");
 
 function generateToken(user) {
   const payload = {
-    id: user.id, // Use user's unique identifier
-    username: user.username,
-    email: user.email,
+    // id: user.id, // Use user's unique identifier
+    // username: user.username,
+    // email: user.email,
+    ...user,
   };
 
   const secret = process.env.JWT_SECRET;
