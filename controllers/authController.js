@@ -64,7 +64,18 @@ auth.post("/login", async (req, res) => {
 
 // Register route
 auth.post("/register", async (req, res) => {
-  const { username, password, email } = req.body;
+  const {
+    username,
+    password,
+    email,
+    user_type,
+    img,
+    preferred_position,
+    first_name,
+    last_name,
+    date_of_birth,
+    nationality,
+  } = req.body;
   try {
     // Check if user already exists
     const existingUser = await findUserByUsername(username);
@@ -81,6 +92,13 @@ auth.post("/register", async (req, res) => {
       username,
       passwordHash: hashedPassword,
       email,
+      user_type,
+      img,
+      preferred_position,
+      first_name,
+      last_name,
+      date_of_birth,
+      nationality,
     });
 
     const token = generateToken(newUser);
@@ -117,6 +135,7 @@ auth.get("/check-auth", authenticateToken, (req, res) => {
   }
 });
 
+// /user is for the navBar and any unprotected Route
 auth.get("/user", authenticateToken, async (req, res) => {
   const { user } = req;
   try {
@@ -130,6 +149,13 @@ auth.get("/user", authenticateToken, async (req, res) => {
           id: user.id,
           username: user.username,
           email: user.email,
+          user_type: user.user_type,
+          img: user.img,
+          preferred_position: user.preferred_position,
+          first_name: user.first_name,
+          last_name: user.last_name,
+          date_of_birth: user.date_of_birth,
+          nationality: user.nationality,
         },
       });
   } catch (error) {
