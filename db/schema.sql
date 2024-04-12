@@ -31,10 +31,22 @@ CREATE TABLE team (
     home_color VARCHAR(15),
     away_color VARCHAR(15),
     creator_id INTEGER,
-    available_goalie INTEGER DEFAULT 1 CHECK(available_goalie >= 0),
-    available_defenders INTEGER DEFAULT 2 CHECK(available_defenders >= 0),
-    available_midfielders INTEGER DEFAULT 2 CHECK(available_midfielders >= 0),
-    available_forwards INTEGER DEFAULT 1 CHECK(available_forwards >= 0)
+    -- available_goalie INTEGER DEFAULT 1 CHECK(available_goalie >= 0),
+    -- available_defenders INTEGER DEFAULT 2 CHECK(available_defenders >= 0),
+    -- available_midfielders INTEGER DEFAULT 2 CHECK(available_midfielders >= 0),
+    -- available_forwards INTEGER DEFAULT 1 CHECK(available_forwards >= 0)
+    goalie INTEGER,
+    defender_one INTEGER,
+    defender_two INTEGER,
+    midfielder_one INTEGER,
+    midfielder_two INTEGER,
+    forward INTEGER,
+    FOREIGN KEY (goalie) REFERENCES users (id),
+    FOREIGN KEY (defender_one) REFERENCES users (id),
+    FOREIGN KEY (defender_two) REFERENCES users (id),
+    FOREIGN KEY (midfielder_one) REFERENCES users (id),
+    FOREIGN KEY (midfielder_two) REFERENCES users (id),
+    FOREIGN KEY (forward) REFERENCES users (id)
 );
 
 DROP TABLE IF EXISTS match CASCADE;
