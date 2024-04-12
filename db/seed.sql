@@ -33,7 +33,7 @@ VALUES
     ('Luminous Lions', 'Lime', 'Cyan', 8, 4,3,7,6,10,9),
     ('Mystic Mavericks', 'Magenta', 'Silver', 9, 4,3,7,6,10,9),
     ('Golden Gladiators', 'Gold', 'Bronze', 10, 4,3,7,6,10,9),
-    ('Olympian Owls', 'Olive', 'Indigo', 11, 4,3,7,6,10,9),
+    ('Olympian Owls', 'Olive', 'Indigo', 11, 4,3,NULL,6,10,9),
     ('Twilight Titans', 'Teal', 'Violet', 12, NULL,NULL,NULL,NULL,NULL,NULL);
 
 INSERT INTO match (img, address, state, city, zip, duration, start_datetime, away_team_id, home_team_id, creator_id, player_slots)

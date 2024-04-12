@@ -42,7 +42,10 @@ match.get("/:id/teams", async (req, res) => {
 match.put("/:id/teams", async (req, res) => {
   const { id } = req.params;
   const updatedDetails = req.body;
-  console.log(id, updatedDetails);
+  try {
+    const updatedTeam = await updateTeamDetails(id, updatedDetails);
+    res.json(updatedTeam);
+  } catch (error) {}
 });
 
 match.get("/:id", async (req, res) => {
