@@ -21,20 +21,20 @@ VALUES
 
 
 -- might not need creator_id
-INSERT INTO team (name, home_color, away_color, creator_id, available_goalie, available_defenders, available_midfielders, available_forwards)
+INSERT INTO team (name, home_color, away_color, creator_id, goalie, defender_one, defender_two, midfielder_one, midfielder_two, forward)
 VALUES
-    ('Phoenix Rising', 'Red', 'Blue', 1, 1, 2, 2, 1),
-    ('Emerald Enigmas', 'Green', 'Yellow', 2, 1, 2, 2, 1),
-    ('Shadow Strikers', 'Black', 'White', 3, 1, 2, 2, 1),
-    ('Sunset Serpents', 'Orange', 'Purple', 4, 1, 2, 2, 1),
-    ('Blazing Bandits', 'Pink', 'Brown', 5, 1, 2, 2, 1),
-    ('Silver Storm', 'Gray', 'Turquoise', 6, 1, 2, 2, 1),
-    ('Midnight Marauders', 'Navy', 'Maroon', 7, 1, 2, 2, 1),
-    ('Luminous Lions', 'Lime', 'Cyan', 8, 1, 2, 2, 1),
-    ('Mystic Mavericks', 'Magenta', 'Silver', 9, 1, 2, 2, 1),
-    ('Golden Gladiators', 'Gold', 'Bronze', 10, 1, 2, 2, 1),
-    ('Olympian Owls', 'Olive', 'Indigo', 11, 1, 2, 2, 1),
-    ('Twilight Titans', 'Teal', 'Violet', 12, 1, 2, 2, 1);
+    ('Phoenix Rising', 'Red', 'Blue', 1, 4,3,7,6,10,9),
+    ('Emerald Enigmas', 'Green', 'Yellow', 2, 8,3,7,6,10,1),
+    ('Shadow Strikers', 'Black', 'White', 3, 4,3,7,6,10,9),
+    ('Sunset Serpents', 'Orange', 'Purple', 4, 4,3,7,6,10,9),
+    ('Blazing Bandits', 'Pink', 'Brown', 5, 4,3,7,6,10,9),
+    ('Silver Storm', 'Gray', 'Turquoise', 6, 4,3,7,6,10,9),
+    ('Midnight Marauders', 'Navy', 'Maroon', 7, 4,3,7,6,10,9),
+    ('Luminous Lions', 'Lime', 'Cyan', 8, 4,3,7,6,10,9),
+    ('Mystic Mavericks', 'Magenta', 'Silver', 9, 4,3,7,6,10,9),
+    ('Golden Gladiators', 'Gold', 'Bronze', 10, 4,3,7,6,10,9),
+    ('Olympian Owls', 'Olive', 'Indigo', 11, 4,3,7,6,10,9),
+    ('Twilight Titans', 'Teal', 'Violet', 12, NULL,NULL,NULL,NULL,NULL,NULL);
 
 INSERT INTO match (img, address, state, city, zip, duration, start_datetime, away_team_id, home_team_id, creator_id, player_slots)
 VALUES
