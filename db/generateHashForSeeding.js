@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 
 // Replace 'your_plain_text_password' with the actual password you want to hash
-const password = "password1";
+const password = "password2";
 const saltRounds = 10;
 
 bcrypt.hash(password, saltRounds, function (err, hash) {
@@ -9,5 +9,6 @@ bcrypt.hash(password, saltRounds, function (err, hash) {
     console.error("Error generating hash:", err);
     return;
   }
+  console.log("Generated Hash", hash);
   // Now, you can manually copy this hash to your seed.sql file
 });
