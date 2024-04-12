@@ -7,7 +7,7 @@
 INSERT INTO users (username, password_hash, email, user_type, img, preferred_position, first_name, last_name, date_of_birth, nationality)
 VALUES
     ('user1', '$2b$10$4vBdARqWiAF9wsjAL/LcgOFl/hFgOdQjjeO1sYXtFQ1HLCe0jyGZu', 'user1@example.com', 'regular', 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'Forward', 'John', 'Doe', '1990-01-01', 'USA'),
-    ('user2', 'password2', 'user2@example.com', 'regular', 'img2.jpg', 'Midfielder', 'Michael', 'Smith', '1995-02-15', 'Canada'),
+    ('user2', '$2b$10$srwF9Zj9c3HEP8pQ45A1l.onarjnd8wJtoaWtFOulOgTENAvw/FZW', 'user2@example.com', 'regular', 'img2.jpg', 'Midfielder', 'Michael', 'Smith', '1995-02-15', 'Canada'),
     ('user3', 'password3', 'user3@example.com', 'regular', 'img3.jpg', 'Defender', 'David', 'Johnson', '1988-06-20', 'UK'),
     ('user4', 'password4', 'user4@example.com', 'regular', 'img4.jpg', 'Goalie', 'James', 'Brown', '1992-11-30', 'Australia'),
     ('user5', 'password5', 'user5@example.com', 'regular', 'img5.jpg', 'Forward', 'Daniel', 'Wilson', '1985-04-10', 'Germany'),
