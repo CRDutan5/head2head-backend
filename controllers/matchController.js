@@ -4,7 +4,9 @@ const {
   getSpecificMatch,
   getTeamsFromSpecificMatch,
   updateTeamDetails,
+  createMatch,
 } = require("../queries/match");
+const { createTeam } = require("../queries/team");
 
 const match = express.Router();
 
@@ -16,16 +18,6 @@ match.get("/", async (req, res) => {
     return "Error retrieving matches" + error;
   }
 });
-
-// match.get("/:id/teams", async (req, res) => {
-//   const { id } = req.params;
-//   try {
-//     const teams = await getTeamsFromSpecificMatch(id);
-//     res.json(teams);
-//   } catch (error) {
-//     return `Could not get teams for specified match: ${error}`;
-//   }
-// });
 
 match.get("/:id/teams", async (req, res) => {
   const { id } = req.params;
@@ -55,6 +47,21 @@ match.get("/:id", async (req, res) => {
     res.status(200).json(match);
   } catch (error) {
     return `Could not get specific match: ${error}`;
+  }
+});
+
+match.post("/", async (req, res) => {
+  try {
+    const homeTeam = await createTeam(req.body.homeTeam);
+    const awayTeam = await createTeam(req.body.awayTeam);
+
+    console.log(homeTeam.id, awayTeam.id);
+
+    const newMatch = await createMatch(req.body.match, awayTeam, homeTeam);
+
+    res.json(newMatch);
+  } catch (error) {
+    return `Error creating match: ${error}`;
   }
 });
 
