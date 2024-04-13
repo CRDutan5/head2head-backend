@@ -107,9 +107,34 @@ const updateTeamDetails = async (id, team) => {
   }
 };
 
+const createMatch = async (match, away_team, home_team) => {
+  try {
+    const query =
+      "INSERT INTO match (img,address,state,city,zip,duration, start_datetime, away_team_id, home_team_id, creator_id, player_slots) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11) RETURNING *";
+    const variables = [
+      match.img,
+      match.address,
+      match.state,
+      match.city,
+      match.zip,
+      match.duration,
+      match.start_datetime,
+      away_team.id,
+      home_team.id,
+      match.creator_id,
+      match.player_slots,
+    ];
+    const newMatch = await db.one(query, variables);
+    return newMatch;
+  } catch (error) {
+    return `Error with the query: ${error}`;
+  }
+};
+
 module.exports = {
   getAllMatches,
   getSpecificMatch,
   getTeamsFromSpecificMatch,
   updateTeamDetails,
+  createMatch,
 };
