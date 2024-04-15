@@ -131,10 +131,22 @@ const createMatch = async (match, away_team, home_team) => {
   }
 };
 
+const deleteMatch = async (id) => {
+  try {
+    const query = "DELETE FROM match WHERE id=$1 RETURNING *";
+    await db.none(query, [id]);
+    console.log("ROute", id);
+    // return deletedMatch;
+  } catch (error) {
+    return `${error}: Could Not Delete Match`;
+  }
+};
+
 module.exports = {
   getAllMatches,
   getSpecificMatch,
   getTeamsFromSpecificMatch,
   updateTeamDetails,
   createMatch,
+  deleteMatch,
 };

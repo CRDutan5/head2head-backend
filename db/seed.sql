@@ -39,26 +39,26 @@ VALUES
 INSERT INTO match (img, address, state, city, zip, duration, start_datetime, away_team_id, home_team_id, creator_id, player_slots)
 VALUES
     ('https://res.cloudinary.com/drlnh7yxm/image/upload/v1712344162/parks/AF1QipPhfYLlR-U69mBTE4koNvveVCFLi3USpcFYz0by_s1360-w1360-h1020_app7tx.jpg', '123 Main St', 'CA', 'Los Angeles', '90001', 90, '2024-04-20 18:00:00', 1, 2, 1, 12),
-    ('https://res.cloudinary.com/drlnh7yxm/image/upload/v1712344021/parks/Aviator_Field_1.jpg_zpqsov.jpg', '456 Oak Ave', 'NY', 'New York', '10001', 90, '2024-04-11 19:00:00', 3, 4, 2, 12),
-    ('https://res.cloudinary.com/drlnh7yxm/image/upload/v1712343830/parks/Pier-40-HRPK-Soccar-Fields-Dusk_wkvg8t.jpg', '789 Maple Blvd', 'TX', 'Houston', '77001', 90, '2024-04-22 22:00:00', 5, 6, 3, 12),
-    ('https://res.cloudinary.com/drlnh7yxm/image/upload/v1712343785/parks/Main_89_rntcp5.jpg', '101 Elm St', 'FL', 'Miami', '33101', 90, '2024-04-13 21:00:00', 7, 8, 4, 12),
+    ('https://res.cloudinary.com/drlnh7yxm/image/upload/v1712344021/parks/Aviator_Field_1.jpg_zpqsov.jpg', '456 Oak Ave', 'NY', 'New York', '10001', 90, '2024-04-11 19:00:00', 3, 4, 1, 12),
+    ('https://res.cloudinary.com/drlnh7yxm/image/upload/v1712343830/parks/Pier-40-HRPK-Soccar-Fields-Dusk_wkvg8t.jpg', '789 Maple Blvd', 'TX', 'Houston', '77001', 90, '2024-04-22 22:00:00', 5, 6, 1, 12),
+    ('https://res.cloudinary.com/drlnh7yxm/image/upload/v1712343785/parks/Main_89_rntcp5.jpg', '101 Elm St', 'FL', 'Miami', '33101', 90, '2024-04-13 21:00:00', 7, 8, 2, 12),
     ('https://res.cloudinary.com/drlnh7yxm/image/upload/v1712343726/parks/NYCSOCCER1web-superJumbo_q7ezmm.jpg', '202 Pine Ave', 'IL', 'Chicago', '60601', 90, '2024-04-14 22:00:00', 9, 10, 5, 12),
     ('https://res.cloudinary.com/drlnh7yxm/image/upload/v1712765385/parks/Photo-Michael-Dorgan-Queens-Post-10_ferfbp.jpg', '303 Cedar Dr', 'WA', 'Seattle', '98101', 90, '2024-04-15 23:00:00', 11, 12, 6, 12);
 
 
-INSERT INTO matchplayer (match_id, player_id, team_id, position)
-VALUES
-    -- Team 1
-    (1, 1, 1, 'Goalie'),
-    (1, 2, 1, 'Defender'),
-    (1, 3, 1, 'Defender'),
-    (1, 4, 1, 'Midfielder'),
-    (1, 5, 1, 'Midfielder'),
-    (1, 6, 1, 'Forward'),
-    -- Team 2
-    (1, 7, 2, 'Goalie'),
-    (1, 8, 2, 'Defender'),
-    (1, 9, 2, 'Defender'),
-    (1, 10, 2, 'Midfielder'),
-    (1, 11, 2, 'Midfielder'),
-    (1, 12, 2, 'Forward');
+-- INSERT INTO matchplayer (match_id, player_id, team_id, position)
+-- VALUES
+--     -- Team 1
+--     (1, 1, 1, 'Goalie'),
+--     (1, 2, 1, 'Defender'),
+--     (1, 3, 1, 'Defender'),
+--     (1, 4, 1, 'Midfielder'),
+--     (1, 5, 1, 'Midfielder'),
+--     (1, 6, 1, 'Forward'),
+--     -- Team 2
+--     (1, 7, 2, 'Goalie'),
+--     (1, 8, 2, 'Defender'),
+--     (1, 9, 2, 'Defender'),
+--     (1, 10, 2, 'Midfielder'),
+--     (1, 11, 2, 'Midfielder'),
+--     (1, 12, 2, 'Forward');
