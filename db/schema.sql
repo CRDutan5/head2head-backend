@@ -67,16 +67,15 @@ CREATE TABLE match (
     FOREIGN KEY (home_team_id) REFERENCES team (id)
 );
 
-DROP TABLE IF EXISTS matchplayer CASCADE;
-CREATE TABLE matchplayer (
-    match_id INTEGER,
-    player_id INTEGER,
-    team_id INTEGER,
-    position VARCHAR(20),
-    PRIMARY KEY (match_id, player_id, team_id),
-    FOREIGN KEY (match_id) REFERENCES match (id),
-    FOREIGN KEY (team_id) REFERENCES team (id),
-    FOREIGN KEY (player_id) REFERENCES users (id)
-);
-
+-- DROP TABLE IF EXISTS matchplayer CASCADE;
+-- CREATE TABLE matchplayer (
+--     match_id INTEGER,
+--     player_id INTEGER,
+--     team_id INTEGER,
+--     position VARCHAR(20),
+--     PRIMARY KEY (match_id, player_id, team_id),
+--     FOREIGN KEY (match_id) REFERENCES match (id),
+--     FOREIGN KEY (team_id) REFERENCES team (id),
+--     FOREIGN KEY (player_id) REFERENCES users (id)
+-- );
 

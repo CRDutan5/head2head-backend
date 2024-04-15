@@ -25,41 +25,44 @@ const getTeamsFromSpecificMatch = async (id) => {
     const teams = await db.any(
       `
       SELECT
-        match.id AS match_id,
-        home_team.id AS home_team_id,
-        away_team.id AS away_team_id,
-        home_team.name AS home_team_name,
-        away_team.name AS away_team_name,
-        home_goalie.first_name AS home_goalie_name,
-        home_defender.first_name AS home_defender_one_name,
-        home_defender_two.first_name AS home_defender_two_name,
-        home_midfielder.first_name AS home_midfielder_one_name,
-        home_midfielder_two.first_name AS home_midfielder_two_name,
-        home_forward.first_name AS home_forward_name,
-        away_goalie.first_name AS away_goalie_name,
-        away_defender.first_name AS away_defender_one_name,
-        away_defender_two.first_name AS away_defender_two_name,
-        away_midfielder.first_name AS away_midfielder_one_name,
-        away_midfielder_two.first_name AS away_midfielder_two_name,
-        away_forward.first_name AS away_forward_name
-      FROM
-        match
-        LEFT JOIN team AS home_team ON match.home_team_id = home_team.id
-        LEFT JOIN team AS away_team ON match.away_team_id = away_team.id
-        LEFT JOIN users AS home_goalie ON home_team.goalie = home_goalie.id
-        LEFT JOIN users AS home_defender ON home_team.defender_one = home_defender.id
-        LEFT JOIN users AS home_defender_two ON home_team.defender_two = home_defender_two.id
-        LEFT JOIN users AS home_midfielder ON home_team.midfielder_one = home_midfielder.id
-        LEFT JOIN users AS home_midfielder_two ON home_team.midfielder_two = home_midfielder_two.id
-        LEFT JOIN users AS home_forward ON home_team.forward = home_forward.id
-        LEFT JOIN users AS away_goalie ON away_team.goalie = away_goalie.id
-        LEFT JOIN users AS away_defender ON away_team.defender_one = away_defender.id
-        LEFT JOIN users AS away_defender_two ON away_team.defender_two = away_defender_two.id
-        LEFT JOIN users AS away_midfielder ON away_team.midfielder_one = away_midfielder.id
-        LEFT JOIN users AS away_midfielder_two ON away_team.midfielder_two = away_midfielder_two.id
-        LEFT JOIN users AS away_forward ON away_team.forward = away_forward.id
-      WHERE
-        match.id = $1
+  match.id AS match_id,
+  home_team.id AS home_team_id,
+  away_team.id AS away_team_id,
+  home_team.name AS home_team_name,
+  home_team.home_color AS home_team_color,
+  away_team.name AS away_team_name,
+  away_team.away_color AS away_team_color,
+  home_goalie.first_name AS home_goalie_name,
+  home_defender.first_name AS home_defender_one_name,
+  home_defender_two.first_name AS home_defender_two_name,
+  home_midfielder.first_name AS home_midfielder_one_name,
+  home_midfielder_two.first_name AS home_midfielder_two_name,
+  home_forward.first_name AS home_forward_name,
+  away_goalie.first_name AS away_goalie_name,
+  away_defender.first_name AS away_defender_one_name,
+  away_defender_two.first_name AS away_defender_two_name,
+  away_midfielder.first_name AS away_midfielder_one_name,
+  away_midfielder_two.first_name AS away_midfielder_two_name,
+  away_forward.first_name AS away_forward_name
+FROM
+  match
+  LEFT JOIN team AS home_team ON match.home_team_id = home_team.id
+  LEFT JOIN team AS away_team ON match.away_team_id = away_team.id
+  LEFT JOIN users AS home_goalie ON home_team.goalie = home_goalie.id
+  LEFT JOIN users AS home_defender ON home_team.defender_one = home_defender.id
+  LEFT JOIN users AS home_defender_two ON home_team.defender_two = home_defender_two.id
+  LEFT JOIN users AS home_midfielder ON home_team.midfielder_one = home_midfielder.id
+  LEFT JOIN users AS home_midfielder_two ON home_team.midfielder_two = home_midfielder_two.id
+  LEFT JOIN users AS home_forward ON home_team.forward = home_forward.id
+  LEFT JOIN users AS away_goalie ON away_team.goalie = away_goalie.id
+  LEFT JOIN users AS away_defender ON away_team.defender_one = away_defender.id
+  LEFT JOIN users AS away_defender_two ON away_team.defender_two = away_defender_two.id
+  LEFT JOIN users AS away_midfielder ON away_team.midfielder_one = away_midfielder.id
+  LEFT JOIN users AS away_midfielder_two ON away_team.midfielder_two = away_midfielder_two.id
+  LEFT JOIN users AS away_forward ON away_team.forward = away_forward.id
+WHERE
+  match.id = $1
+
     `,
       [id]
     );
@@ -131,10 +134,22 @@ const createMatch = async (match, away_team, home_team) => {
   }
 };
 
+const deleteMatch = async (id) => {
+  try {
+    const query = "DELETE FROM match WHERE id=$1 RETURNING *";
+    await db.none(query, [id]);
+    console.log("ROute", id);
+    // return deletedMatch;
+  } catch (error) {
+    return `${error}: Could Not Delete Match`;
+  }
+};
+
 module.exports = {
   getAllMatches,
   getSpecificMatch,
   getTeamsFromSpecificMatch,
   updateTeamDetails,
   createMatch,
+  deleteMatch,
 };

@@ -5,6 +5,7 @@ const {
   getTeamsFromSpecificMatch,
   updateTeamDetails,
   createMatch,
+  deleteMatch,
 } = require("../queries/match");
 const { createTeam } = require("../queries/team");
 
@@ -47,6 +48,17 @@ match.get("/:id", async (req, res) => {
     res.status(200).json(match);
   } catch (error) {
     return `Could not get specific match: ${error}`;
+  }
+});
+
+match.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    await deleteMatch(id);
+    console.log(id);
+    res.status(200).json({ message: "Successfully Deleted Match" });
+  } catch (error) {
+    return `${error}: Route error deleting match`;
   }
 });
 
