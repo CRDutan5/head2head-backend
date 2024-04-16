@@ -6,6 +6,8 @@ const {
   updateTeamDetails,
   createMatch,
   deleteMatch,
+  updateMatchInfo,
+  updateMatch,
 } = require("../queries/match");
 const { createTeam } = require("../queries/team");
 
@@ -29,6 +31,17 @@ match.get("/:id/teams", async (req, res) => {
     res.status(500).json({
       error: `Could not get teams for specified match: ${error.message}`,
     });
+  }
+});
+
+match.put("/:id", async (req, res) => {
+  const { id } = req.params;
+  const match = req.body;
+  try {
+    const updatedMatch = await updateMatch(id, match);
+    res.status(200).json(updatedMatch);
+  } catch (error) {
+    return `Could not return updated team: ${error}`;
   }
 });
 

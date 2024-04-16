@@ -145,6 +145,27 @@ const deleteMatch = async (id) => {
   }
 };
 
+const updateMatch = async (id, match) => {
+  try {
+    const matchQuery =
+      "UPDATE match SET img=$1, address=$2, state=$3, city=$4, zip=$5, duration=$6, start_datetime=$7 WHERE id=$8 RETURNING *";
+    const matchVariables = [
+      match.img,
+      match.address,
+      match.state,
+      match.city,
+      match.zip,
+      match.duration,
+      match.start_datetime,
+      id,
+    ];
+    const updatedMatch = await db.one(matchQuery, matchVariables);
+    return updatedMatch;
+  } catch (error) {
+    return `Error in query function: ${error}`;
+  }
+};
+
 module.exports = {
   getAllMatches,
   getSpecificMatch,
@@ -152,4 +173,5 @@ module.exports = {
   updateTeamDetails,
   createMatch,
   deleteMatch,
+  updateMatch,
 };
