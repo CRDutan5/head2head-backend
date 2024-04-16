@@ -8,6 +8,7 @@ const {
   deleteMatch,
   updateMatchInfo,
   updateMatch,
+  updateTeam,
 } = require("../queries/match");
 const { createTeam } = require("../queries/team");
 
@@ -45,6 +46,7 @@ match.put("/:id", async (req, res) => {
   }
 });
 
+// CURRENTLY this is for updating the players names in the
 match.put("/:id/teams", async (req, res) => {
   const { id } = req.params;
   const updatedDetails = req.body;

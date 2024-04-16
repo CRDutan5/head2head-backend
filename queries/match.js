@@ -166,6 +166,24 @@ const updateMatch = async (id, match) => {
   }
 };
 
+const updateTeam = async (id, homeTeam, awayTeam) => {
+  try {
+    const query =
+      "UPDATE team SET home_team_name=$1, home_team_color=$2, away_team_name=$3, away_team_color=$4 WHERE id =$5";
+    const variables = [
+      homeTeam.home_team_name,
+      homeTeam.home_team_color,
+      awayTeam.away_team_name,
+      awayTeam.away_team_color,
+      id,
+    ];
+    const updatedTeams = await db.any(query, variables);
+    return updatedTeams;
+  } catch (error) {
+    throw new Error(`Could not edit teams for that match: ${error}`);
+  }
+};
+
 module.exports = {
   getAllMatches,
   getSpecificMatch,
@@ -174,4 +192,5 @@ module.exports = {
   createMatch,
   deleteMatch,
   updateMatch,
+  updateTeam,
 };
