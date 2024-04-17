@@ -6,7 +6,7 @@
 -- ('demo', '$2b$10$.z68x3792U9LyBwmghfsKexstMO7i0SeNCoDmeJa7bEFPQBnZU3bK', 'demo@example.com', NOW(), NOW());
 INSERT INTO users (username, password_hash, email, user_type, img, preferred_position, first_name, last_name, date_of_birth, nationality)
 VALUES
-    ('user1', '$2b$10$4vBdARqWiAF9wsjAL/LcgOFl/hFgOdQjjeO1sYXtFQ1HLCe0jyGZu', 'user1@example.com', 'regular', 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'Forward', 'John', 'Doe', '1990-01-01', 'USA'),
+    ('user1', '$2b$10$4vBdARqWiAF9wsjAL/LcgOFl/hFgOdQjjeO1sYXtFQ1HLCe0jyGZu', 'user1@example.com', 'regular', 'https://images.nightcafe.studio/jobs/5XE0nFXKTr8N6OJ2Gd5q/5XE0nFXKTr8N6OJ2Gd5q--1--lqg0k.jpg?tr=w-1600,c-at_max', 'Forward', 'John', 'Doe', '1990-01-01', 'USA'),
     ('user2', '$2b$10$srwF9Zj9c3HEP8pQ45A1l.onarjnd8wJtoaWtFOulOgTENAvw/FZW', 'user2@example.com', 'regular', 'img2.jpg', 'Midfielder', 'Michael', 'Smith', '1995-02-15', 'Canada'),
     ('user3', 'password3', 'user3@example.com', 'regular', 'img3.jpg', 'Defender', 'David', 'Johnson', '1988-06-20', 'UK'),
     ('user4', 'password4', 'user4@example.com', 'regular', 'img4.jpg', 'Goalie', 'James', 'Brown', '1992-11-30', 'Australia'),
@@ -38,12 +38,12 @@ VALUES
 
 INSERT INTO match (img, address, state, city, zip, duration, start_datetime, away_team_id, home_team_id, creator_id, player_slots)
 VALUES
-    ('https://res.cloudinary.com/drlnh7yxm/image/upload/v1712344162/parks/AF1QipPhfYLlR-U69mBTE4koNvveVCFLi3USpcFYz0by_s1360-w1360-h1020_app7tx.jpg', '123 Main St', 'CA', 'Los Angeles', '90001', 90, '2024-04-20 18:00:00', 1, 2, 1, 12),
-    ('https://res.cloudinary.com/drlnh7yxm/image/upload/v1712344021/parks/Aviator_Field_1.jpg_zpqsov.jpg', '456 Oak Ave', 'NY', 'New York', '10001', 90, '2024-04-11 19:00:00', 3, 4, 1, 12),
-    ('https://res.cloudinary.com/drlnh7yxm/image/upload/v1712343830/parks/Pier-40-HRPK-Soccar-Fields-Dusk_wkvg8t.jpg', '789 Maple Blvd', 'TX', 'Houston', '77001', 90, '2024-04-22 22:00:00', 5, 6, 1, 12),
-    ('https://res.cloudinary.com/drlnh7yxm/image/upload/v1712343785/parks/Main_89_rntcp5.jpg', '101 Elm St', 'FL', 'Miami', '33101', 90, '2024-04-13 21:00:00', 7, 8, 2, 12),
-    ('https://res.cloudinary.com/drlnh7yxm/image/upload/v1712343726/parks/NYCSOCCER1web-superJumbo_q7ezmm.jpg', '202 Pine Ave', 'IL', 'Chicago', '60601', 90, '2024-04-14 22:00:00', 9, 10, 5, 12),
-    ('https://res.cloudinary.com/drlnh7yxm/image/upload/v1712765385/parks/Photo-Michael-Dorgan-Queens-Post-10_ferfbp.jpg', '303 Cedar Dr', 'WA', 'Seattle', '98101', 90, '2024-04-15 23:00:00', 11, 12, 6, 12);
+    ('https://res.cloudinary.com/drlnh7yxm/image/upload/v1712344162/parks/AF1QipPhfYLlR-U69mBTE4koNvveVCFLi3USpcFYz0by_s1360-w1360-h1020_app7tx.jpg', '123 Main St', 'NY', 'New York', '10032', 90, '2024-04-10T13:00:00.000Z', 1, 2, 1, 12),
+    ('https://res.cloudinary.com/drlnh7yxm/image/upload/v1712344021/parks/Aviator_Field_1.jpg_zpqsov.jpg', '3258-3264 Flatbush Ave', 'NY', 'Brooklyn', '11234', 90, '2024-04-11T14:00:00.000Z', 3, 4, 1, 12),
+    ('https://res.cloudinary.com/drlnh7yxm/image/upload/v1712343830/parks/Pier-40-HRPK-Soccar-Fields-Dusk_wkvg8t.jpg', '789 Maple Blvd', 'NY', 'New York', '77001', 90, '2024-04-14T15:00:00.000Z', 5, 6, 1, 12),
+    ('https://res.cloudinary.com/drlnh7yxm/image/upload/v1712343785/parks/Main_89_rntcp5.jpg', '101 Elm St', 'NY', 'New York', '33101', 90, '2024-04-17T18:00:00.000Z', 7, 8, 2, 12),
+    ('https://res.cloudinary.com/drlnh7yxm/image/upload/v1712343726/parks/NYCSOCCER1web-superJumbo_q7ezmm.jpg', '202 Pine Ave', 'NY', 'Corona', '11354', 90, '2024-04-20T13:00:00.000Z', 9, 10, 5, 12),
+    ('https://res.cloudinary.com/drlnh7yxm/image/upload/v1712765385/parks/Photo-Michael-Dorgan-Queens-Post-10_ferfbp.jpg', '303 Cedar Dr', 'NY', 'Long Island City', '11101', 90, '2024-04-21T13:00:00.000Z', 11, 12, 6, 12);
 
 
 -- INSERT INTO matchplayer (match_id, player_id, team_id, position)
