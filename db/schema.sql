@@ -58,7 +58,7 @@ CREATE TABLE match (
     city VARCHAR(20),
     zip VARCHAR(10),
     duration INTEGER,
-    start_datetime TIMESTAMP WITHOUT TIME ZONE,
+    start_datetime TIMESTAMP WITH TIME ZONE,
     away_team_id INTEGER,
     home_team_id INTEGER,
     creator_id INTEGER,
