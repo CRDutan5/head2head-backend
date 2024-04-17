@@ -145,6 +145,45 @@ const deleteMatch = async (id) => {
   }
 };
 
+const updateMatch = async (id, match) => {
+  try {
+    const matchQuery =
+      "UPDATE match SET img=$1, address=$2, state=$3, city=$4, zip=$5, duration=$6, start_datetime=$7 WHERE id=$8 RETURNING *";
+    const matchVariables = [
+      match.img,
+      match.address,
+      match.state,
+      match.city,
+      match.zip,
+      match.duration,
+      match.start_datetime,
+      id,
+    ];
+    const updatedMatch = await db.one(matchQuery, matchVariables);
+    return updatedMatch;
+  } catch (error) {
+    return `Error in query function: ${error}`;
+  }
+};
+
+// const updateTeam = async (id, homeTeam, awayTeam) => {
+//   try {
+//     const query =
+//       "UPDATE team SET home_team_name=$1, home_team_color=$2, away_team_name=$3, away_team_color=$4 WHERE id =$5";
+//     const variables = [
+//       homeTeam.home_team_name,
+//       homeTeam.home_team_color,
+//       awayTeam.away_team_name,
+//       awayTeam.away_team_color,
+//       id,
+//     ];
+//     const updatedTeams = await db.any(query, variables);
+//     return updatedTeams;
+//   } catch (error) {
+//     throw new Error(`Could not edit teams for that match: ${error}`);
+//   }
+// };
+
 module.exports = {
   getAllMatches,
   getSpecificMatch,
@@ -152,4 +191,5 @@ module.exports = {
   updateTeamDetails,
   createMatch,
   deleteMatch,
+  updateMatch,
 };

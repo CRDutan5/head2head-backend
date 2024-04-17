@@ -6,6 +6,9 @@ const {
   updateTeamDetails,
   createMatch,
   deleteMatch,
+  updateMatchInfo,
+  updateMatch,
+  updateTeam,
 } = require("../queries/match");
 const { createTeam } = require("../queries/team");
 
@@ -32,6 +35,18 @@ match.get("/:id/teams", async (req, res) => {
   }
 });
 
+match.put("/:id", async (req, res) => {
+  const { id } = req.params;
+  const match = req.body;
+  try {
+    const updatedMatch = await updateMatch(id, match);
+    res.status(200).json(updatedMatch);
+  } catch (error) {
+    return `Could not return updated team: ${error}`;
+  }
+});
+
+// CURRENTLY this is for updating the players names in the
 match.put("/:id/teams", async (req, res) => {
   const { id } = req.params;
   const updatedDetails = req.body;
